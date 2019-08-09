@@ -6,6 +6,8 @@ import pl.blog.spring.camel.camel.dao.CamelDao;
 import pl.blog.spring.camel.camel.model.Camel;
 import pl.blog.spring.camel.camel.validation.CamelValidator;
 
+import java.util.List;
+
 @Component
 public class CamelService {
     private final CamelDao camelDao;
@@ -21,5 +23,9 @@ public class CamelService {
         camelValidator.validate(camel);
 
         return camelDao.saveCamel(camel);
+    }
+
+    public List<Camel> getCamels() {
+        return camelDao.getCamels();
     }
 }

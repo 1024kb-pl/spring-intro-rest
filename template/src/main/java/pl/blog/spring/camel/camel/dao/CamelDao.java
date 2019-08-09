@@ -4,6 +4,8 @@ import org.springframework.stereotype.Component;
 import pl.blog.spring.camel.camel.model.Camel;
 
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -25,5 +27,9 @@ public class CamelDao {
         return camels.values().stream()
                 .filter(camel -> camel.getName().equals(name))
                 .findFirst();
+    }
+
+    public List<Camel> getCamels() {
+        return new LinkedList<>(camels.values());
     }
 }
