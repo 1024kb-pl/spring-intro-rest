@@ -25,4 +25,8 @@ public class GuardianDao {
     public List<Guardian> getGuardians() {
         return new LinkedList<>(guardians.values());
     }
+
+    public void removeGuardian(Long id) {
+        guardians.remove(id);
+    }
 }

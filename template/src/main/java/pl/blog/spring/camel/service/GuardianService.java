@@ -6,6 +6,8 @@ import pl.blog.spring.camel.camel.dao.GuardianDao;
 import pl.blog.spring.camel.camel.model.Guardian;
 import pl.blog.spring.camel.camel.validation.GuardianValidator;
 
+import java.util.List;
+
 @Component
 public class GuardianService {
     private final GuardianDao guardianDao;
@@ -21,5 +23,13 @@ public class GuardianService {
         guardianValidator.validate(guardian);
 
         return guardianDao.saveGuardian(guardian);
+    }
+
+    public List<Guardian> getGuardians() {
+        return guardianDao.getGuardians();
+    }
+
+    public void removeGuardian(Long id) {
+        guardianDao.removeGuardian(id);
     }
 }

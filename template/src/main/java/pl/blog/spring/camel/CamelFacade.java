@@ -47,4 +47,23 @@ public class CamelFacade {
                 .findFirst()
                 .orElseThrow(() -> new HttpClientErrorException(HttpStatus.NOT_FOUND));
     }
+
+    public void removeGuardian(Long id) {
+        guardianService.removeGuardian(id);
+    }
+
+    public Guardian createGuardian(Guardian guardian) {
+        return guardianService.addGuardian(guardian);
+    }
+
+    public Guardian getGuardian(Long id) {
+        return getGuardians().stream()
+                .filter(c -> c.getId().equals(id))
+                .findFirst()
+                .orElseThrow(() -> new HttpClientErrorException(HttpStatus.NOT_FOUND));
+    }
+
+    public List<Guardian> getGuardians() {
+        return guardianService.getGuardians();
+    }
 }
